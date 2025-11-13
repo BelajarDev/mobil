@@ -1,0 +1,201 @@
+<!-- FILE: index.html -->
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pasar Mobil Bekas — Semua Kondisi</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/logo-placeholder.png" alt="Logo" class="logo">
+        <h1>PasarMobil</h1>
+      </div>
+      <nav class="nav">
+        <a href="#listings">Beranda</a>
+        <a href="#add">Tambah Iklan</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Jual & Beli Mobil — Semua Tipe, Semua Kondisi</h2>
+      <p>Terima mobil dalam kondisi apa pun: laka, mati total, tanpa surat, kena banjir, dsb.</p>
+    </section>
+
+    <section class="filters">
+      <div class="search">
+        <input id="searchInput" type="search" placeholder="Cari: merk, model, tahun...">
+      </div>
+      <div class="filter-options">
+        <label><input type="checkbox" value="all" checked id="chkAll"> Semua</label>
+        <label><input type="checkbox" value="laka" class="cond"> Laka (Kecelakaan)</label>
+        <label><input type="checkbox" value="jogkrok" class="cond"> Jogkrok / Tidak Jalan</label>
+        <label><input type="checkbox" value="noDocs" class="cond"> Tanpa Surat</label>
+        <label><input type="checkbox" value="banjir" class="cond"> Kena Banjir</label>
+        <label><input type="checkbox" value="baik" class="cond"> Kondisi Baik</label>
+      </div>
+    </section>
+
+    <section id="listings" class="grid">
+      <!-- Example listing cards. Duplicate / replace data as needed. -->
+      <article class="card" data-title="Toyota Avanza 2012" data-condition="baik">
+        <div class="thumb" style="background-image:url('assets/car1.jpg')"></div>
+        <div class="card-body">
+          <h3>Toyota Avanza 2012</h3>
+          <p class="meta">Bensin • Manual • Jakarta</p>
+          <div class="badges">
+            <span class="badge badge-ok">Kondisi Baik</span>
+          </div>
+          <p class="price">Rp 85.000.000</p>
+          <a class="btn" href="#kontak">Hubungi</a>
+        </div>
+      </article>
+
+      <article class="card" data-title="Honda Jazz 2010" data-condition="laka">
+        <div class="thumb" style="background-image:url('assets/car2.jpg')"></div>
+        <div class="card-body">
+          <h3>Honda Jazz 2010</h3>
+          <p class="meta">Bensin • Manual • Bekasi</p>
+          <div class="badges">
+            <span class="badge badge-danger">Laka</span>
+            <span class="badge badge-no-docs">Tanpa Surat</span>
+          </div>
+          <p class="price">Rp 25.000.000</p>
+          <a class="btn" href="#kontak">Hubungi</a>
+        </div>
+      </article>
+
+      <article class="card" data-title="Suzuki Carry 2008" data-condition="jogkrok">
+        <div class="thumb" style="background-image:url('assets/car3.jpg')"></div>
+        <div class="card-body">
+          <h3>Suzuki Carry 2008</h3>
+          <p class="meta">Diesel • Manual • Tangerang</p>
+          <div class="badges">
+            <span class="badge badge-warning">Tidak Jalan (Jogkrok)</span>
+          </div>
+          <p class="price">Rp 10.000.000</p>
+          <a class="btn" href="#kontak">Hubungi</a>
+        </div>
+      </article>
+
+      <article class="card" data-title="Daihatsu Xenia 2013" data-condition="banjir">
+        <div class="thumb" style="background-image:url('assets/car4.jpg')"></div>
+        <div class="card-body">
+          <h3>Daihatsu Xenia 2013</h3>
+          <p class="meta">Bensin • Manual • Semarang</p>
+          <div class="badges">
+            <span class="badge badge-flood">Terkena Banjir</span>
+          </div>
+          <p class="price">Rp 30.000.000</p>
+          <a class="btn" href="#kontak">Hubungi</a>
+        </div>
+      </article>
+
+      <!-- Tambah listing lain di sini -->
+    </section>
+
+    <section id="add" class="add-listing">
+      <h2>Tambah Iklan</h2>
+      <form id="listingForm">
+        <div class="form-row">
+          <input type="text" name="title" placeholder="Judul (Merk Model Tahun)" required>
+          <input type="text" name="location" placeholder="Kota / Lokasi">
+        </div>
+        <div class="form-row">
+          <select name="condition">
+            <option value="baik">Kondisi Baik</option>
+            <option value="laka">Laka</option>
+            <option value="jogkrok">Jogkrok / Tidak Jalan</option>
+            <option value="noDocs">Tanpa Surat</option>
+            <option value="banjir">Kena Banjir</option>
+          </select>
+          <input type="number" name="price" placeholder="Harga (Rp)">
+        </div>
+        <div class="form-row">
+          <textarea name="desc" rows="4" placeholder="Deskripsi singkat"></textarea>
+        </div>
+        <div class="form-row actions">
+          <button type="submit" class="btn primary">Submit Iklan</button>
+        </div>
+      </form>
+      <p class="note">Catatan: Website ini hanya menampilkan iklan. Pastikan transaksi mematuhi hukum setempat dan periksa dokumen dengan teliti.</p>
+    </section>
+
+    <section id="kontak" class="contact">
+      <h2>Kontak</h2>
+      <p>WhatsApp / Telepon: <a href="tel:+628123456789">+62 812-3456-789</a></p>
+      <p>Email: <a href="mailto:info@pasarmobil.example">info@pasarmobil.example</a></p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 PasarMobil — Semua iklan disediakan oleh pengguna. Periksa legalitas kendaraan sebelum membeli.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple client-side filtering (no backend). Replace with server logic for production.
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const condCheckboxes = Array.from(document.querySelectorAll('.cond'));
+    const chkAll = document.getElementById('chkAll');
+    const searchInput = document.getElementById('searchInput');
+
+    function applyFilter(){
+      const active = condCheckboxes.filter(c => c.checked).map(c => c.value);
+      const showAll = document.getElementById('chkAll').checked || active.length === 0;
+      const q = searchInput.value.trim().toLowerCase();
+
+      cards.forEach(card => {
+        const cond = card.dataset.condition || '';
+        const title = card.dataset.title.toLowerCase();
+        const matchCond = showAll || active.includes(cond);
+        const matchQuery = !q || title.includes(q);
+        card.style.display = (matchCond && matchQuery) ? '' : 'none';
+      });
+    }
+
+    condCheckboxes.forEach(c => c.addEventListener('change', () => { chkAll.checked = false; applyFilter(); }));
+    chkAll.addEventListener('change', () => { if (chkAll.checked) condCheckboxes.forEach(c => c.checked = false); applyFilter(); });
+    searchInput.addEventListener('input', applyFilter);
+
+    // Basic form handling: create a new card on submit (client-side only)
+    document.getElementById('listingForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const title = fd.get('title') || 'Iklan Baru';
+      const condition = fd.get('condition') || 'baik';
+      const price = fd.get('price') ? 'Rp ' + Number(fd.get('price')).toLocaleString() : 'Nego';
+
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.dataset.title = title;
+      card.dataset.condition = condition;
+      card.innerHTML = `
+        <div class="thumb" style="background-image:url('assets/car-placeholder.jpg')"></div>
+        <div class="card-body">
+          <h3>${title}</h3>
+          <p class="meta">-</p>
+          <div class="badges"><span class="badge">${condition}</span></div>
+          <p class="price">${price}</p>
+          <a class="btn" href="#kontak">Hubungi</a>
+        </div>`;
+      document.getElementById('listings').prepend(card);
+      e.target.reset();
+      chkAll.checked = true;
+      applyFilter();
+    });
+
+    // Initialize
+    applyFilter();
+  </script>
+</body>
+</html>
+
