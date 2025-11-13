@@ -1,201 +1,316 @@
-<!-- FILE: index.html -->
-<!doctype html>
-<html lang="id">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pasar Mobil Bekas — Semua Kondisi</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="brand">
-        <img src="assets/logo-placeholder.png" alt="Logo" class="logo">
-        <h1>PasarMobil</h1>
-      </div>
-      <nav class="nav">
-        <a href="#listings">Beranda</a>
-        <a href="#add">Tambah Iklan</a>
-        <a href="#kontak">Kontak</a>
-      </nav>
-    </div>
-  </header>
+/* FILE: styles.css */
+/* Reset dan dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-  <main class="container">
-    <section class="hero">
-      <h2>Jual & Beli Mobil — Semua Tipe, Semua Kondisi</h2>
-      <p>Terima mobil dalam kondisi apa pun: laka, mati total, tanpa surat, kena banjir, dsb.</p>
-    </section>
+body {
+  background-color: #f4f6f8;
+  color: #222;
+  line-height: 1.6;
+}
 
-    <section class="filters">
-      <div class="search">
-        <input id="searchInput" type="search" placeholder="Cari: merk, model, tahun...">
-      </div>
-      <div class="filter-options">
-        <label><input type="checkbox" value="all" checked id="chkAll"> Semua</label>
-        <label><input type="checkbox" value="laka" class="cond"> Laka (Kecelakaan)</label>
-        <label><input type="checkbox" value="jogkrok" class="cond"> Jogkrok / Tidak Jalan</label>
-        <label><input type="checkbox" value="noDocs" class="cond"> Tanpa Surat</label>
-        <label><input type="checkbox" value="banjir" class="cond"> Kena Banjir</label>
-        <label><input type="checkbox" value="baik" class="cond"> Kondisi Baik</label>
-      </div>
-    </section>
+/* Layout umum */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-    <section id="listings" class="grid">
-      <!-- Example listing cards. Duplicate / replace data as needed. -->
-      <article class="card" data-title="Toyota Avanza 2012" data-condition="baik">
-        <div class="thumb" style="background-image:url('assets/car1.jpg')"></div>
-        <div class="card-body">
-          <h3>Toyota Avanza 2012</h3>
-          <p class="meta">Bensin • Manual • Jakarta</p>
-          <div class="badges">
-            <span class="badge badge-ok">Kondisi Baik</span>
-          </div>
-          <p class="price">Rp 85.000.000</p>
-          <a class="btn" href="#kontak">Hubungi</a>
-        </div>
-      </article>
+/* ========== HEADER ========== */
+.site-header {
+  background: linear-gradient(90deg, #004aad, #0077c8);
+  color: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
 
-      <article class="card" data-title="Honda Jazz 2010" data-condition="laka">
-        <div class="thumb" style="background-image:url('assets/car2.jpg')"></div>
-        <div class="card-body">
-          <h3>Honda Jazz 2010</h3>
-          <p class="meta">Bensin • Manual • Bekasi</p>
-          <div class="badges">
-            <span class="badge badge-danger">Laka</span>
-            <span class="badge badge-no-docs">Tanpa Surat</span>
-          </div>
-          <p class="price">Rp 25.000.000</p>
-          <a class="btn" href="#kontak">Hubungi</a>
-        </div>
-      </article>
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-      <article class="card" data-title="Suzuki Carry 2008" data-condition="jogkrok">
-        <div class="thumb" style="background-image:url('assets/car3.jpg')"></div>
-        <div class="card-body">
-          <h3>Suzuki Carry 2008</h3>
-          <p class="meta">Diesel • Manual • Tangerang</p>
-          <div class="badges">
-            <span class="badge badge-warning">Tidak Jalan (Jogkrok)</span>
-          </div>
-          <p class="price">Rp 10.000.000</p>
-          <a class="btn" href="#kontak">Hubungi</a>
-        </div>
-      </article>
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-      <article class="card" data-title="Daihatsu Xenia 2013" data-condition="banjir">
-        <div class="thumb" style="background-image:url('assets/car4.jpg')"></div>
-        <div class="card-body">
-          <h3>Daihatsu Xenia 2013</h3>
-          <p class="meta">Bensin • Manual • Semarang</p>
-          <div class="badges">
-            <span class="badge badge-flood">Terkena Banjir</span>
-          </div>
-          <p class="price">Rp 30.000.000</p>
-          <a class="btn" href="#kontak">Hubungi</a>
-        </div>
-      </article>
+.brand .logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
 
-      <!-- Tambah listing lain di sini -->
-    </section>
+.brand h1 {
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+}
 
-    <section id="add" class="add-listing">
-      <h2>Tambah Iklan</h2>
-      <form id="listingForm">
-        <div class="form-row">
-          <input type="text" name="title" placeholder="Judul (Merk Model Tahun)" required>
-          <input type="text" name="location" placeholder="Kota / Lokasi">
-        </div>
-        <div class="form-row">
-          <select name="condition">
-            <option value="baik">Kondisi Baik</option>
-            <option value="laka">Laka</option>
-            <option value="jogkrok">Jogkrok / Tidak Jalan</option>
-            <option value="noDocs">Tanpa Surat</option>
-            <option value="banjir">Kena Banjir</option>
-          </select>
-          <input type="number" name="price" placeholder="Harga (Rp)">
-        </div>
-        <div class="form-row">
-          <textarea name="desc" rows="4" placeholder="Deskripsi singkat"></textarea>
-        </div>
-        <div class="form-row actions">
-          <button type="submit" class="btn primary">Submit Iklan</button>
-        </div>
-      </form>
-      <p class="note">Catatan: Website ini hanya menampilkan iklan. Pastikan transaksi mematuhi hukum setempat dan periksa dokumen dengan teliti.</p>
-    </section>
+/* Navigation */
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1.2rem;
+  font-weight: 500;
+  transition: 0.2s;
+}
 
-    <section id="kontak" class="contact">
-      <h2>Kontak</h2>
-      <p>WhatsApp / Telepon: <a href="tel:+628123456789">+62 812-3456-789</a></p>
-      <p>Email: <a href="mailto:info@pasarmobil.example">info@pasarmobil.example</a></p>
-    </section>
+.nav a:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
 
-  </main>
+/* ========== HERO SECTION ========== */
+.hero {
+  background: #eaf3ff;
+  padding: 3rem 1rem;
+  text-align: center;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2025 PasarMobil — Semua iklan disediakan oleh pengguna. Periksa legalitas kendaraan sebelum membeli.</p>
-    </div>
-  </footer>
+.hero h2 {
+  font-size: 1.8rem;
+  color: #004aad;
+  margin-bottom: 0.5rem;
+}
 
-  <script>
-    // Simple client-side filtering (no backend). Replace with server logic for production.
-    const cards = Array.from(document.querySelectorAll('.card'));
-    const condCheckboxes = Array.from(document.querySelectorAll('.cond'));
-    const chkAll = document.getElementById('chkAll');
-    const searchInput = document.getElementById('searchInput');
+.hero p {
+  font-size: 1.1rem;
+  color: #333;
+}
 
-    function applyFilter(){
-      const active = condCheckboxes.filter(c => c.checked).map(c => c.value);
-      const showAll = document.getElementById('chkAll').checked || active.length === 0;
-      const q = searchInput.value.trim().toLowerCase();
+/* ========== FILTERS ========== */
+.filters {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
 
-      cards.forEach(card => {
-        const cond = card.dataset.condition || '';
-        const title = card.dataset.title.toLowerCase();
-        const matchCond = showAll || active.includes(cond);
-        const matchQuery = !q || title.includes(q);
-        card.style.display = (matchCond && matchQuery) ? '' : 'none';
-      });
-    }
+.search input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
 
-    condCheckboxes.forEach(c => c.addEventListener('change', () => { chkAll.checked = false; applyFilter(); }));
-    chkAll.addEventListener('change', () => { if (chkAll.checked) condCheckboxes.forEach(c => c.checked = false); applyFilter(); });
-    searchInput.addEventListener('input', applyFilter);
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+}
 
-    // Basic form handling: create a new card on submit (client-side only)
-    document.getElementById('listingForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const fd = new FormData(e.target);
-      const title = fd.get('title') || 'Iklan Baru';
-      const condition = fd.get('condition') || 'baik';
-      const price = fd.get('price') ? 'Rp ' + Number(fd.get('price')).toLocaleString() : 'Nego';
+.filter-options label {
+  font-size: 0.95rem;
+  cursor: pointer;
+}
 
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.dataset.title = title;
-      card.dataset.condition = condition;
-      card.innerHTML = `
-        <div class="thumb" style="background-image:url('assets/car-placeholder.jpg')"></div>
-        <div class="card-body">
-          <h3>${title}</h3>
-          <p class="meta">-</p>
-          <div class="badges"><span class="badge">${condition}</span></div>
-          <p class="price">${price}</p>
-          <a class="btn" href="#kontak">Hubungi</a>
-        </div>`;
-      document.getElementById('listings').prepend(card);
-      e.target.reset();
-      chkAll.checked = true;
-      applyFilter();
-    });
+/* ========== GRID LISTING ========== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
 
-    // Initialize
-    applyFilter();
-  </script>
-</body>
-</html>
+/* ========== CARD STYLE ========== */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
 
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+}
+
+.thumb {
+  background-size: cover;
+  background-position: center;
+  height: 160px;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body h3 {
+  font-size: 1.1rem;
+  color: #004aad;
+  margin-bottom: 0.3rem;
+}
+
+.card-body .meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.badges {
+  margin-bottom: 0.6rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  color: #fff;
+  margin-right: 0.3rem;
+}
+
+/* Badge warna kondisi */
+.badge-ok {
+  background-color: #2e7d32;
+}
+.badge-danger {
+  background-color: #d32f2f;
+}
+.badge-warning {
+  background-color: #f9a825;
+  color: #222;
+}
+.badge-no-docs {
+  background-color: #6a1b9a;
+}
+.badge-flood {
+  background-color: #0277bd;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0077c8;
+  margin-bottom: 0.5rem;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  background: #004aad;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #0067e6;
+}
+
+/* ========== FORM TAMBAH IKLAN ========== */
+.add-listing {
+  margin: 3rem 0;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.add-listing h2 {
+  color: #004aad;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.form-row textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+.actions {
+  text-align: right;
+}
+
+.btn.primary {
+  background: #0077c8;
+}
+
+.btn.primary:hover {
+  background: #005fa3;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+/* ========== KONTAK ========== */
+.contact {
+  background: #eaf3ff;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+}
+
+.contact h2 {
+  color: #004aad;
+  margin-bottom: 0.8rem;
+}
+
+.contact a {
+  color: #0077c8;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* ========== FOOTER ========== */
+.site-footer {
+  background: #004aad;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  border-top: 4px solid #0077c8;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 700px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .nav a {
+    margin: 0 0.5rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
